@@ -5,6 +5,7 @@ import com.fourthwall.smallcinema.movie.dao.ShowTimeDao;
 import com.fourthwall.smallcinema.movie.model.Movie;
 import com.fourthwall.smallcinema.movie.model.ShowTime;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -15,6 +16,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional(readOnly = true)
 class MovieTimesService {
 
     private final MovieDao movieDao;

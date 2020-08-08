@@ -1,5 +1,7 @@
 package com.fourthwall.smallcinema.movie.times;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import java.time.LocalTime;
 import java.util.Objects;
 import java.util.SortedSet;
@@ -10,21 +12,22 @@ class MovieTimesView implements Comparable<MovieTimesView> {
     private final String title;
     private final SortedSet<LocalTime> times;
 
+    @JsonCreator
     MovieTimesView(Long movieId, String title, SortedSet<LocalTime> times) {
         this.movieId = movieId;
         this.title = title;
         this.times = times;
     }
 
-    Long getMovieId() {
+    public Long getMovieId() {
         return movieId;
     }
 
-    String getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    SortedSet<LocalTime> getTimes() {
+    public SortedSet<LocalTime> getTimes() {
         return times;
     }
 

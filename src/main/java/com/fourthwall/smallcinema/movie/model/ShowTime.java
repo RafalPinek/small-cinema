@@ -26,6 +26,8 @@ public class ShowTime {
         this.dateTime = dateTime;
     }
 
+    public ShowTime() {}
+
     public Long getId() {
         return id;
     }

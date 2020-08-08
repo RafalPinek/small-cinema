@@ -15,6 +15,8 @@ import java.util.List;
 @Component
 public class ShowTimesGenerator {
 
+    public static final int NUMBER_OF_TIMES = 5;
+
     private final MovieDao movieDao;
 
     private final ShowTimeDao showTimeDao;
@@ -32,11 +34,14 @@ public class ShowTimesGenerator {
 
     private void createShowTimes(Long movieId) {
         List<ShowTime> showTimes = new ArrayList<>();
-        for (int i = 10; i < 50; i = i + 10) {
-            ShowTime showTime = new ShowTime(movieId, BigDecimal.valueOf(i),
-                    LocalDateTime.of(2020, 8, 11, 14, i));
-            showTimes.add(showTime);
+        for (int i = 8; i < 31; i++) {
+            for (int j = 10; j <= NUMBER_OF_TIMES * 10; j = j + 10) {
+                ShowTime showTime = new ShowTime(movieId, BigDecimal.valueOf(j),
+                        LocalDateTime.of(2020, 8, i, 20, j));
+                showTimes.add(showTime);
+            }
         }
+
         showTimeDao.saveAll(showTimes);
     }
 }

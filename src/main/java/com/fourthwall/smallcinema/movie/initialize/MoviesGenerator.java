@@ -12,6 +12,8 @@ import java.util.List;
 @Component
 public class MoviesGenerator {
 
+    public static final int GENERATED_MOVIES_COUNT = 8;
+
     private final MovieDao movieDao;
 
     MoviesGenerator(MovieDao movieDao) {

@@ -11,10 +11,16 @@ import java.util.SortedSet;
 @RestController
 class GetMovieTimesController {
 
+    private final MovieTimesService movieTimesService;
+
+    GetMovieTimesController(MovieTimesService movieTimesService) {
+        this.movieTimesService = movieTimesService;
+    }
+
     @RequestMapping(value = "/movie-times")
     SortedSet<MovieTimesView> getMovieTimes(@RequestParam("date")
                                             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
-        return null;
+        return movieTimesService.getMovieTimes(date);
     }
 
 }

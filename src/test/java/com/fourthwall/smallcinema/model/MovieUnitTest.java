@@ -5,7 +5,7 @@ import org.assertj.core.api.Assertions;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
-public class MovieTest {
+public class MovieUnitTest {
 
     private static final Offset<Double> ACCEPTED_RATING_OFFSET = Offset.offset(0.01);
 

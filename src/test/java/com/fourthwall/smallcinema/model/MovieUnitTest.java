@@ -1,9 +1,10 @@
 package com.fourthwall.smallcinema.model;
 
 import com.fourthwall.smallcinema.movie.model.Movie;
-import org.assertj.core.api.Assertions;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MovieUnitTest {
 
@@ -19,7 +20,7 @@ public class MovieUnitTest {
 
         // then
         double rating = movie.getRating();
-        Assertions.assertThat(rating).isEqualTo(1.0, ACCEPTED_RATING_OFFSET);
+        assertThat(rating).isEqualTo(1.0, ACCEPTED_RATING_OFFSET);
     }
 
     @Test
@@ -34,6 +35,6 @@ public class MovieUnitTest {
 
         // then
         double rating = movie.getRating();
-        Assertions.assertThat(rating).isEqualTo(2.67, ACCEPTED_RATING_OFFSET);
+        assertThat(rating).isEqualTo(2.67, ACCEPTED_RATING_OFFSET);
     }
 }

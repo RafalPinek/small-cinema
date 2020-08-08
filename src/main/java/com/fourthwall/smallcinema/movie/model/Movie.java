@@ -1,9 +1,6 @@
 package com.fourthwall.smallcinema.movie.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -13,12 +10,16 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column
     private String imdbId;
 
+    @Column
     private String title;
 
+    @Column
     private Double rating;
 
+    @Column
     private Integer votes;
 
     public Movie(String imdbId, String title) {

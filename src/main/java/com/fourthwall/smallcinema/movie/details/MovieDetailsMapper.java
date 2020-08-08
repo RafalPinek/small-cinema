@@ -15,6 +15,7 @@ class MovieDetailsMapper {
 
         detailsView.setRating(movie.getRating());
         detailsView.setVotes(movie.getVotes());
+        detailsView.setVersion(movie.getVersion());
 
         return detailsView;
     }

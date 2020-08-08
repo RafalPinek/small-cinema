@@ -22,6 +22,11 @@ public class Movie {
     @Column
     private Integer votes;
 
+    public Movie() {
+        rating = 0.0;
+        votes = 0;
+    }
+
     public Movie(String imdbId, String title) {
         this.imdbId = imdbId;
         this.title = title;

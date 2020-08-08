@@ -11,13 +11,13 @@ public class ShowTime {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
+    @Version
+    private Long version;
+
     private Long movieId;
 
-    @Column
     private BigDecimal price;
 
-    @Column
     private LocalDateTime dateTime;
 
     public ShowTime(Long movieId, BigDecimal price, LocalDateTime dateTime) {
@@ -26,7 +26,8 @@ public class ShowTime {
         this.dateTime = dateTime;
     }
 
-    public ShowTime() {}
+    public ShowTime() {
+    }
 
     public Long getId() {
         return id;
@@ -42,6 +43,14 @@ public class ShowTime {
 
     public LocalDateTime getDateTime() {
         return dateTime;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     @Override

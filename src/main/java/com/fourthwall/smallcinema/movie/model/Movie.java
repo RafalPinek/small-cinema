@@ -10,16 +10,15 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
+    @Version
+    private Long version;
+
     private String imdbId;
 
-    @Column
     private String title;
 
-    @Column
     private Double rating;
 
-    @Column
     private Integer votes;
 
     public Movie() {
@@ -58,6 +57,14 @@ public class Movie {
 
     public Integer getVotes() {
         return votes;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     @Override

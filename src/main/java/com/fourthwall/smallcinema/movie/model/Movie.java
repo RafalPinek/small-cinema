@@ -13,7 +13,7 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long imdbId;
+    private String imdbId;
 
     private String title;
 
@@ -21,7 +21,7 @@ public class Movie {
 
     private Integer votes;
 
-    public Movie(Long imdbId, String title) {
+    public Movie(String imdbId, String title) {
         this.imdbId = imdbId;
         this.title = title;
         rating = 0.0;
@@ -29,7 +29,8 @@ public class Movie {
     }
 
     public void rate(int rate) {
-        rating = (rating * votes + (double) rate) / (double) (votes + 1);
+        double tmp = (rating * votes + (double) rate) / (double) (votes + 1);
+        rating = (double) Math.round(tmp * 100.0) / 100.0;
         votes++;
     }
 
@@ -37,7 +38,7 @@ public class Movie {
         return id;
     }
 
-    public Long getImdbId() {
+    public String getImdbId() {
         return imdbId;
     }
 

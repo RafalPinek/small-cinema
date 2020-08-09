@@ -5,15 +5,11 @@ import com.fourthwall.smallcinema.movie.model.Movie;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 public class RatingServiceImplIT {
 
     private static final Offset<Double> ACCEPTED_RATING_OFFSET = Offset.offset(0.01);
@@ -24,7 +20,7 @@ public class RatingServiceImplIT {
     @Test
     public void shouldSetRateOnce() {
         // given
-        RatingService ratingService = new RatingServiceImpl(movieDao);
+        RatingService ratingService = new RatingServiceImpl(movieDao, new SimpleRatingValidator());
         Movie movie = movieDao.findAll().iterator().next();
         final int exampleRate = 3;
         double previousRate = movie.getRating();

@@ -8,12 +8,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 class RatingServiceImpl implements RatingService {
 
-    private final RatingValidator ratingValidator = new RatingValidator();
+    private final RatingValidator ratingValidator;
 
     private final MovieDao movieDao;
 
-    RatingServiceImpl(MovieDao movieDao) {
+    RatingServiceImpl(MovieDao movieDao, RatingValidator ratingValidator) {
         this.movieDao = movieDao;
+        this.ratingValidator = ratingValidator;
     }
 
     @Transactional

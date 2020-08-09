@@ -1,6 +1,6 @@
 package com.fourthwall.smallcinema.movie.initialize;
 
-import com.fourthwall.smallcinema.movie.dao.MovieDao;
+import com.fourthwall.smallcinema.movie.dao.movie.AbstractMovieDao;
 import com.fourthwall.smallcinema.movie.model.Movie;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,9 +14,9 @@ public class MoviesGenerator {
 
     public static final int GENERATED_MOVIES_COUNT = 8;
 
-    private final MovieDao movieDao;
+    private final AbstractMovieDao movieDao;
 
-    MoviesGenerator(MovieDao movieDao) {
+    MoviesGenerator(AbstractMovieDao movieDao) {
         this.movieDao = movieDao;
     }
 

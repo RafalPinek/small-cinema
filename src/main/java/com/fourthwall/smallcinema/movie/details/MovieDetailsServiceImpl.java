@@ -1,6 +1,6 @@
 package com.fourthwall.smallcinema.movie.details;
 
-import com.fourthwall.smallcinema.movie.dao.MovieDao;
+import com.fourthwall.smallcinema.movie.dao.movie.AbstractMovieDao;
 import com.fourthwall.smallcinema.movie.model.Movie;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,11 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 class MovieDetailsServiceImpl implements MovieDetailsService<MovieDetailsView> {
 
-    private final MovieDao movieDao;
+    private final AbstractMovieDao movieDao;
 
     private final OmdbConnector omdbConnector;
 
-    MovieDetailsServiceImpl(MovieDao movieDao, OmdbConnector omdbConnector) {
+    MovieDetailsServiceImpl(AbstractMovieDao movieDao, OmdbConnector omdbConnector) {
         this.movieDao = movieDao;
         this.omdbConnector = omdbConnector;
     }

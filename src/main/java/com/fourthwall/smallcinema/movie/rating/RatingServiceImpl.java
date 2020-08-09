@@ -1,6 +1,6 @@
 package com.fourthwall.smallcinema.movie.rating;
 
-import com.fourthwall.smallcinema.movie.dao.MovieDao;
+import com.fourthwall.smallcinema.movie.dao.movie.AbstractMovieDao;
 import com.fourthwall.smallcinema.movie.model.Movie;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,9 +10,9 @@ class RatingServiceImpl implements RatingService {
 
     private final RatingValidator ratingValidator;
 
-    private final MovieDao movieDao;
+    private final AbstractMovieDao movieDao;
 
-    RatingServiceImpl(MovieDao movieDao, RatingValidator ratingValidator) {
+    RatingServiceImpl(AbstractMovieDao movieDao, RatingValidator ratingValidator) {
         this.movieDao = movieDao;
         this.ratingValidator = ratingValidator;
     }

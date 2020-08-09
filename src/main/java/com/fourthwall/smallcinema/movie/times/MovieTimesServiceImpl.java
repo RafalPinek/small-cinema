@@ -1,6 +1,6 @@
 package com.fourthwall.smallcinema.movie.times;
 
-import com.fourthwall.smallcinema.movie.dao.MovieDao;
+import com.fourthwall.smallcinema.movie.dao.movie.AbstractMovieDao;
 import com.fourthwall.smallcinema.movie.dao.showtime.AbstractShowTimeDao;
 import com.fourthwall.smallcinema.movie.model.Movie;
 import com.fourthwall.smallcinema.movie.model.ShowTime;
@@ -19,11 +19,11 @@ import java.util.stream.Collectors;
 @Transactional(readOnly = true)
 class MovieTimesServiceImpl implements MovieTimesService<MovieTimesView> {
 
-    private final MovieDao movieDao;
+    private final AbstractMovieDao movieDao;
 
     private final AbstractShowTimeDao showTimeDao;
 
-    MovieTimesServiceImpl(MovieDao movieDao, AbstractShowTimeDao showTimeDao) {
+    MovieTimesServiceImpl(AbstractMovieDao movieDao, AbstractShowTimeDao showTimeDao) {
         this.movieDao = movieDao;
         this.showTimeDao = showTimeDao;
     }

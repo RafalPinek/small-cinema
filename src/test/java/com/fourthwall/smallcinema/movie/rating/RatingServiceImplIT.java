@@ -1,6 +1,6 @@
 package com.fourthwall.smallcinema.movie.rating;
 
-import com.fourthwall.smallcinema.movie.dao.MovieDao;
+import com.fourthwall.smallcinema.movie.dao.movie.AbstractMovieDao;
 import com.fourthwall.smallcinema.movie.model.Movie;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ public class RatingServiceImplIT {
     private static final Offset<Double> ACCEPTED_RATING_OFFSET = Offset.offset(0.01);
 
     @Autowired
-    private MovieDao movieDao;
+    private AbstractMovieDao movieDao;
 
     @Test
     public void shouldSetRateOnce() {

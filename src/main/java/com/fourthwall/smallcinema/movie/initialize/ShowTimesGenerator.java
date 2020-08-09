@@ -1,6 +1,6 @@
 package com.fourthwall.smallcinema.movie.initialize;
 
-import com.fourthwall.smallcinema.movie.dao.MovieDao;
+import com.fourthwall.smallcinema.movie.dao.movie.AbstractMovieDao;
 import com.fourthwall.smallcinema.movie.dao.showtime.AbstractShowTimeDao;
 import com.fourthwall.smallcinema.movie.model.ShowTime;
 import org.springframework.stereotype.Component;
@@ -17,11 +17,11 @@ public class ShowTimesGenerator {
 
     public static final int NUMBER_OF_TIMES = 5;
 
-    private final MovieDao movieDao;
+    private final AbstractMovieDao movieDao;
 
     private final AbstractShowTimeDao showTimeDao;
 
-    ShowTimesGenerator(MovieDao movieDao, AbstractShowTimeDao showTimeDao) {
+    ShowTimesGenerator(AbstractMovieDao movieDao, AbstractShowTimeDao showTimeDao) {
         this.movieDao = movieDao;
         this.showTimeDao = showTimeDao;
     }

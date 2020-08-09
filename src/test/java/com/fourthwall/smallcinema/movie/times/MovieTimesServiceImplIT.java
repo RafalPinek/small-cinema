@@ -1,6 +1,6 @@
 package com.fourthwall.smallcinema.movie.times;
 
-import com.fourthwall.smallcinema.movie.dao.MovieDao;
+import com.fourthwall.smallcinema.movie.dao.movie.AbstractMovieDao;
 import com.fourthwall.smallcinema.movie.dao.showtime.AbstractShowTimeDao;
 import com.fourthwall.smallcinema.movie.initialize.MoviesGenerator;
 import com.fourthwall.smallcinema.movie.initialize.ShowTimesGenerator;
@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MovieTimesServiceImplIT {
 
     @Autowired
-    private MovieDao movieDao;
+    private AbstractMovieDao movieDao;
 
     @Autowired
     private AbstractShowTimeDao showTimeDao;

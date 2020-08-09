@@ -1,6 +1,6 @@
 package com.fourthwall.smallcinema.movie.details;
 
-import com.fourthwall.smallcinema.movie.dao.MovieDao;
+import com.fourthwall.smallcinema.movie.dao.movie.AbstractMovieDao;
 import com.fourthwall.smallcinema.movie.model.Movie;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MovieDetailsServiceImplIT {
 
     @Autowired
-    private MovieDao movieDao;
+    private AbstractMovieDao movieDao;
 
     @Autowired
     private RestTemplate restTemplate;

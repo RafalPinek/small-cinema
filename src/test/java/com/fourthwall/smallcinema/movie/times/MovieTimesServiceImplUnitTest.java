@@ -1,6 +1,6 @@
 package com.fourthwall.smallcinema.movie.times;
 
-import com.fourthwall.smallcinema.movie.dao.MovieDao;
+import com.fourthwall.smallcinema.movie.dao.movie.AbstractMovieDao;
 import com.fourthwall.smallcinema.movie.dao.showtime.AbstractShowTimeDao;
 import com.fourthwall.smallcinema.movie.model.Movie;
 import com.fourthwall.smallcinema.movie.model.ShowTime;
@@ -24,7 +24,7 @@ public class MovieTimesServiceImplUnitTest {
 
     private static final Long MOVIE_ID = 1L;
 
-    private MovieDao movieDao = mock(MovieDao.class);
+    private AbstractMovieDao movieDao = mock(AbstractMovieDao.class);
 
     private AbstractShowTimeDao showTimeDao = mock(AbstractShowTimeDao.class);
 

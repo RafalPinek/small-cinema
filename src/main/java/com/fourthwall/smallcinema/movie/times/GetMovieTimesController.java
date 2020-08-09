@@ -11,9 +11,9 @@ import java.util.SortedSet;
 @RestController
 class GetMovieTimesController {
 
-    private final MovieTimesService movieTimesService;
+    private final MovieTimesService<MovieTimesView> movieTimesService;
 
-    GetMovieTimesController(MovieTimesService movieTimesService) {
+    GetMovieTimesController(MovieTimesService<MovieTimesView> movieTimesService) {
         this.movieTimesService = movieTimesService;
     }
 

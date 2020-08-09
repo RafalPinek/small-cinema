@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class MovieDetailsServiceIT {
+public class MovieDetailsServiceImplIT {
 
     @Autowired
     private MovieDao movieDao;
@@ -22,7 +22,7 @@ public class MovieDetailsServiceIT {
     public void shouldObtainMovieDetails() {
         // given
         OmdbConnector omdbConnector = new OmdbConnector(restTemplate);
-        MovieDetailsService movieDetailsService = new MovieDetailsService(movieDao, omdbConnector);
+        MovieDetailsService<MovieDetailsView> movieDetailsService = new MovieDetailsServiceImpl(movieDao, omdbConnector);
         Movie movie = movieDao.findAll().iterator().next();
 
         // when

@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class GetMovieDetailsController {
 
-    private final MovieDetailsService movieDetailsService;
+    private final MovieDetailsService<MovieDetailsView> movieDetailsService;
 
-    GetMovieDetailsController(MovieDetailsService movieDetailsService) {
+    GetMovieDetailsController(MovieDetailsService<MovieDetailsView> movieDetailsService) {
         this.movieDetailsService = movieDetailsService;
     }
 

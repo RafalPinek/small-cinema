@@ -13,4 +13,8 @@ public interface GenericDao<T> {
 
     Iterable<T> findAll();
 
+    void deleteAll();
+
+    void deleteById(Long id);
+
 }

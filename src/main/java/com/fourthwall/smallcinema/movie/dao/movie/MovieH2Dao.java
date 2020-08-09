@@ -1,13 +1,12 @@
 package com.fourthwall.smallcinema.movie.dao.movie;
 
+import com.fourthwall.smallcinema.movie.dao.AbstractH2Dao;
 import com.fourthwall.smallcinema.movie.model.Movie;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collection;
-import java.util.Optional;
-
 @Repository
-public class MovieH2Dao implements AbstractMovieDao {
+public class MovieH2Dao implements AbstractMovieDao, AbstractH2Dao<Movie> {
 
     private final MovieCrudDao movieCrudDao;
 
@@ -16,22 +15,7 @@ public class MovieH2Dao implements AbstractMovieDao {
     }
 
     @Override
-    public void save(Movie entity) {
-        movieCrudDao.save(entity);
-    }
-
-    @Override
-    public void saveAll(Collection<Movie> entities) {
-        movieCrudDao.saveAll(entities);
-    }
-
-    @Override
-    public Optional<Movie> findById(Long id) {
-        return movieCrudDao.findById(id);
-    }
-
-    @Override
-    public Iterable<Movie> findAll() {
-        return movieCrudDao.findAll();
+    public CrudRepository<Movie, Long> getCrudRepository() {
+        return movieCrudDao;
     }
 }

@@ -1,16 +1,16 @@
 package com.fourthwall.smallcinema.movie.dao.showtime;
 
+import com.fourthwall.smallcinema.movie.dao.AbstractH2Dao;
 import com.fourthwall.smallcinema.movie.model.ShowTime;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Collection;
-import java.util.Optional;
 import java.util.Set;
 
 @Repository
-public class ShowTimeH2Dao implements AbstractShowTimeDao {
+public class ShowTimeH2Dao implements AbstractShowTimeDao, AbstractH2Dao<ShowTime> {
 
     private final ShowTimeCrudDao showTimeCrudDao;
 
@@ -25,22 +25,7 @@ public class ShowTimeH2Dao implements AbstractShowTimeDao {
     }
 
     @Override
-    public void save(ShowTime entity) {
-        showTimeCrudDao.save(entity);
-    }
-
-    @Override
-    public void saveAll(Collection<ShowTime> entities) {
-        showTimeCrudDao.saveAll(entities);
-    }
-
-    @Override
-    public Optional<ShowTime> findById(Long id) {
-        return showTimeCrudDao.findById(id);
-    }
-
-    @Override
-    public Iterable<ShowTime> findAll() {
-        return showTimeCrudDao.findAll();
+    public CrudRepository<ShowTime, Long> getCrudRepository() {
+        return showTimeCrudDao;
     }
 }

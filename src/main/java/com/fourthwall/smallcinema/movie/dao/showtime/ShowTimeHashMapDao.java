@@ -72,4 +72,24 @@ public class ShowTimeHashMapDao implements AbstractShowTimeDao {
             readLock.unlock();
         }
     }
+
+    @Override
+    public void deleteAll() {
+        writeLock.lock();
+        try {
+            data.clear();
+        } finally {
+            writeLock.unlock();
+        }
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        writeLock.lock();
+        try {
+            data.remove(id);
+        } finally {
+            writeLock.unlock();
+        }
+    }
 }

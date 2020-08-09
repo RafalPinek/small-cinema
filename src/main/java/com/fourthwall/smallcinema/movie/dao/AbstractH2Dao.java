@@ -30,7 +30,7 @@ public interface AbstractH2Dao<T> extends GenericDao<T> {
     }
 
     default void deleteById(Long id) {
-        getCrudRepository().findById(id);
+        getCrudRepository().deleteById(id);
     }
 
 }

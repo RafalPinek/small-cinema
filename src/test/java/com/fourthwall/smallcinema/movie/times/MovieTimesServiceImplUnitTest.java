@@ -1,7 +1,7 @@
 package com.fourthwall.smallcinema.movie.times;
 
 import com.fourthwall.smallcinema.movie.dao.MovieDao;
-import com.fourthwall.smallcinema.movie.dao.ShowTimeDao;
+import com.fourthwall.smallcinema.movie.dao.showtime.AbstractShowTimeDao;
 import com.fourthwall.smallcinema.movie.model.Movie;
 import com.fourthwall.smallcinema.movie.model.ShowTime;
 import org.junit.jupiter.api.Test;
@@ -26,7 +26,7 @@ public class MovieTimesServiceImplUnitTest {
 
     private MovieDao movieDao = mock(MovieDao.class);
 
-    private ShowTimeDao showTimeDao = mock(ShowTimeDao.class);
+    private AbstractShowTimeDao showTimeDao = mock(AbstractShowTimeDao.class);
 
     private MovieTimesService<MovieTimesView> service = new MovieTimesServiceImpl(movieDao, showTimeDao);
 
@@ -74,18 +74,7 @@ public class MovieTimesServiceImplUnitTest {
         // then
         assertThat(movieTimesViews).hasSize(2);
         movieTimesViews.forEach(view -> assertThat(view.getTimes()).hasSize(10));
-        assertThat(movieTimesViews.stream()
-                .map(MovieTimesView::getMovieId)
-                .anyMatch(id1::equals)).isTrue();
-        assertThat(movieTimesViews.stream()
-                .map(MovieTimesView::getMovieId)
-                .anyMatch(id2::equals)).isTrue();
-        assertThat(movieTimesViews.stream()
-                .map(MovieTimesView::getTitle)
-                .anyMatch(title1::equals)).isTrue();
-        assertThat(movieTimesViews.stream()
-                .map(MovieTimesView::getTitle)
-                .anyMatch(title2::equals)).isTrue();
+        checkTitlesAndIds(movieTimesViews, id1, id2, title1, title2);
     }
 
     private Set<ShowTime> prepareShowTimes(LocalTime firstLocalTime) {
@@ -102,5 +91,20 @@ public class MovieTimesServiceImplUnitTest {
         when(movieMock.getId()).thenReturn(id);
         when(movieMock.getTitle()).thenReturn(title);
         when(movieDao.findById(id)).thenReturn(Optional.of(movieMock));
+    }
+
+    private void checkTitlesAndIds(Set<MovieTimesView> movieTimesViews, Long id1, Long id2, String title1, String title2) {
+        assertThat(movieTimesViews.stream()
+                .map(MovieTimesView::getMovieId)
+                .anyMatch(id1::equals)).isTrue();
+        assertThat(movieTimesViews.stream()
+                .map(MovieTimesView::getMovieId)
+                .anyMatch(id2::equals)).isTrue();
+        assertThat(movieTimesViews.stream()
+                .map(MovieTimesView::getTitle)
+                .anyMatch(title1::equals)).isTrue();
+        assertThat(movieTimesViews.stream()
+                .map(MovieTimesView::getTitle)
+                .anyMatch(title2::equals)).isTrue();
     }
 }

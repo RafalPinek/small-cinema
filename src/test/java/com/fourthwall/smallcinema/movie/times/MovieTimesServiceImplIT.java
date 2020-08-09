@@ -1,7 +1,7 @@
 package com.fourthwall.smallcinema.movie.times;
 
 import com.fourthwall.smallcinema.movie.dao.MovieDao;
-import com.fourthwall.smallcinema.movie.dao.ShowTimeDao;
+import com.fourthwall.smallcinema.movie.dao.showtime.AbstractShowTimeDao;
 import com.fourthwall.smallcinema.movie.initialize.MoviesGenerator;
 import com.fourthwall.smallcinema.movie.initialize.ShowTimesGenerator;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ public class MovieTimesServiceImplIT {
     private MovieDao movieDao;
 
     @Autowired
-    private ShowTimeDao showTimeDao;
+    private AbstractShowTimeDao showTimeDao;
 
     @Test
     public void shouldGetCorrectAmountOfMovieTimes() {

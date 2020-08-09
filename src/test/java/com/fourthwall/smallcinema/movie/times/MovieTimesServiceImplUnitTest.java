@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class MovieTimesServiceUnitTest {
+public class MovieTimesServiceImplUnitTest {
 
     private static final Long MOVIE_ID = 1L;
 
@@ -28,7 +28,7 @@ public class MovieTimesServiceUnitTest {
 
     private ShowTimeDao showTimeDao = mock(ShowTimeDao.class);
 
-    private MovieTimesService service = new MovieTimesService(movieDao, showTimeDao);
+    private MovieTimesService<MovieTimesView> service = new MovieTimesServiceImpl(movieDao, showTimeDao);
 
     @Test
     public void shouldGetMovieTimesByDate() {

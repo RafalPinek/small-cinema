@@ -14,7 +14,7 @@ import java.util.Set;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class MovieTimesServiceIT {
+public class MovieTimesServiceImplIT {
 
     @Autowired
     private MovieDao movieDao;
@@ -25,7 +25,7 @@ public class MovieTimesServiceIT {
     @Test
     public void shouldGetCorrectAmountOfMovieTimes() {
         // given
-        MovieTimesService movieTimesService = new MovieTimesService(movieDao, showTimeDao);
+        MovieTimesService<MovieTimesView> movieTimesService = new MovieTimesServiceImpl(movieDao, showTimeDao);
         LocalDate localDate = LocalDate.of(2020, 8, 11);
 
         // when

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
-public class RatingServiceIT {
+public class RatingServiceImplIT {
 
     private static final Offset<Double> ACCEPTED_RATING_OFFSET = Offset.offset(0.01);
 
@@ -24,7 +24,7 @@ public class RatingServiceIT {
     @Test
     public void shouldSetRateOnce() {
         // given
-        RatingService ratingService = new RatingService(movieDao);
+        RatingService ratingService = new RatingServiceImpl(movieDao);
         Movie movie = movieDao.findAll().iterator().next();
         final int exampleRate = 3;
         double previousRate = movie.getRating();

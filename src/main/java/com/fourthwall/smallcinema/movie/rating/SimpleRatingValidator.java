@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 class SimpleRatingValidator implements RatingValidator {
 
-    public void validate(Integer rate) {
+    public void validate(Integer rate) throws IllegalArgumentException {
         if (rate == null) {
             throw new IllegalArgumentException("Movie rate may not be null.");
         }
